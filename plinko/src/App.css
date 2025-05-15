@@ -7,13 +7,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 10vh;
 }
 
 .App {
   text-align: center;
-  max-width: 1200px;
-  width: 100%;
+  max-width: 800px;
   padding: 20px;
 }
 
@@ -24,6 +23,8 @@ body {
   align-items: flex-start;
   gap: 60px;
   margin-top: 20px;
+  max-width: 10px;
+  max-width: 10px;
 }
 
 .controls {
@@ -59,49 +60,14 @@ button {
   box-shadow: 0 0 10px #39ff14;
 }
 
-.plinko-container {
-  margin-top: 150px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
 
 .pegs {
   margin-bottom: 20px;
 }
 
-.row {
-  display: flex;
-  justify-content: center;
-  margin: 40px 0;
-  gap: 80px; /* wider peg spacing */
-}
 
-.peg {
-  width: 14px;
-  height: 14px;
-  background-color: white;
-  border-radius: 50%;
-}
 
-.slots {
-  display: flex;
-  justify-content: center;
-  gap: 45px; /* match peg spacing */
-  margin-top: -30px;
-}
-
-.slot {
-  width: 50px;
-  height: 80px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  background: none;
-  border: none;
-  box-shadow: none;
-  padding: 0;
-}
 
 .slot-label {
   font-size: 14px;
@@ -111,5 +77,88 @@ button {
 }
 
 .staggered-slots {
-  margin-left: 0px; /* offset to land between last row of pegs */
+  margin-left: 0px;
+  /* offset to land between last row of pegs */
+}
+
+.ball {
+  width: 12px;
+  height: 12px;
+  background-color: red;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+
+
+
+.row {
+  display: flex;
+  height: 30px;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+
+
+.ball-animated {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  transition: top 0.03s linear, left 0.03s linear;
+  z-index: 10;
+}
+
+
+
+
+.slot img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+
+.plinko-container {
+  position: relative;
+  margin: 0 auto;
+  background-color: #222233;
+  overflow: hidden;
+}
+
+.peg {
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.slot {
+  width: 40px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: absolute;
+  z-index: 2;
+}
+
+.slots {
+  position: absolute;
+  bottom: 0;
+  height: 60px;
 }

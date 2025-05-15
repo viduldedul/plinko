@@ -1,11 +1,20 @@
 import './App.css';
-import PlinkoBoard from './PlinkoBoard';
 import React, { useState } from 'react';
 import DifficultySelector from './DifficultySelector';
+import PlinkoBoard from './PlinkoBoard';
 
 function App() {
+  const ROWS = 16;
+  const COLS = 2 * ROWS + 1;
+  const CELL_SIZE = 40;
+
   const [difficulty, setDifficulty] = useState('medium');
   const [bet, setBet] = useState(10);
+  const [dropCount, setDropCount] = useState(0); // signal za spuščanje žogice
+
+  const handleDropBall = () => {
+    setDropCount((prev) => prev + 1);
+  };
 
   return (
     <div className="App">
@@ -28,13 +37,16 @@ function App() {
             />
           </label>
 
-          <button onClick={() => alert('Drop ball (not implemented)')}>
-            Drop Ball
-          </button>
+          <button onClick={handleDropBall}>Drop Ball</button>
         </div>
 
         <div className="board">
-          <PlinkoBoard rows={16} />
+          <PlinkoBoard
+            rows={ROWS}
+            cols={COLS}
+            CELL_SIZE={CELL_SIZE}
+            dropSignal={dropCount}
+          />
         </div>
       </div>
     </div>
