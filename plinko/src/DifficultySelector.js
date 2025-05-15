@@ -3,9 +3,9 @@ import './DifficultySelector.css';
 
 const DifficultySelector = ({ selected, onSelect }) => {
   const difficulties = [
-    { key: 'easy', src: '/easy.png', alt: 'Easy' },
-    { key: 'medium', src: '/medium.png', alt: 'Medium' },
-    { key: 'hard', src: '/hard.png', alt: 'Hard' },
+    { key: 'easy', alt: 'Easy' },
+    { key: 'medium', alt: 'Medium' },
+    { key: 'hard', alt: 'Hard' },
   ];
 
   return (
@@ -13,11 +13,11 @@ const DifficultySelector = ({ selected, onSelect }) => {
       {difficulties.map((diff) => (
         <button
           key={diff.key}
-          className={`difficulty-button ${selected === diff.key ? 'selected' : ''}`}
+          className={`difficulty-button ${diff.key} ${selected === diff.key ? 'selected' : ''}`}
           onClick={() => onSelect(diff.key)}
           aria-label={diff.alt}
         >
-          <img src={diff.src} alt={diff.alt} />
+          <span>{diff.alt}</span>
         </button>
       ))}
     </div>
